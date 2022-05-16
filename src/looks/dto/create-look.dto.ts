@@ -19,4 +19,8 @@ export class CreateLookDto {
 	@ApiProperty()
 	@IsNotEmpty()
 	products!: Product[];
+
+	@ApiProperty()
+	@IsNotEmpty()
+	image!: string;
 }

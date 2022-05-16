@@ -23,4 +23,8 @@ export class Look {
 	@ManyToMany(() => Product, (product: Product) => product.looks)
 	@JoinTable()
 	products!: Product[];
+
+	@ApiProperty()
+	@Column()
+	image!: string;
 }
