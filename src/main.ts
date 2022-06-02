@@ -2,7 +2,7 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import {readFileSync} from 'fs';
+import { readFileSync } from 'fs';
 
 async function bootstrap() {
 	const httpsOptions = {
@@ -15,7 +15,7 @@ async function bootstrap() {
 	});
 
 	app.enableCors({
-		'origin': ['http://localhost:8080'],
+		'origin': ['http://localhost:8080', 'localhost:8080', 'https://liaxum.github.io/green-your-look-vue/'],
 		'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 		'allowedHeaders': 'Authorization, Content-Type, Accept',
 		'credentials': true,
