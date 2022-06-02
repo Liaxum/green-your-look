@@ -18,7 +18,7 @@ export class ProductsListsService {
 	}
 
 	findOne(id: number): Promise<ProductsList> {
-		return this.data.findOne(id, { relations: ['products', 'user'] });
+		return this.data.findOne({ where: { id: id }, relations: ['products', 'user'] });
 	}
 
 	async update(id: number, dto: UpdateProductsListDto): Promise<ProductsList> {

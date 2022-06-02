@@ -2,12 +2,12 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import fs from 'fs';
+import {readFileSync} from 'fs';
 
 async function bootstrap() {
 	const httpsOptions = {
-		key: fs.readFileSync('/home/liaxum/dev/selfsigned.key'),
-		cert: fs.readFileSync('/home/liaxum/dev/selfsigned.crt')
+		key: readFileSync('/home/liaxum/dev/green-your-look/secrets/selfsigned.key'),
+		cert: readFileSync('/home/liaxum/dev/green-your-look/secrets/selfsigned.crt')
 	};
 
 	const app = await NestFactory.create(AppModule, {

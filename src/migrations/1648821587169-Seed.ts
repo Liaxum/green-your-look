@@ -6,7 +6,6 @@ export class Seed1648821587169 implements MigrationInterface {
 	public async up(run: QueryRunner): Promise<void> {
 		await run.manager.save(run.manager.create<Category>(Category, {
 			name: 'Brouillon',
-			image: 'Brouillon'
 		}));
 	}
 

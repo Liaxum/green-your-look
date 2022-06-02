@@ -14,13 +14,15 @@ export class CategoriesService {
 	}
 
 	findAll(): Promise<Category[]> {
-		return this.data.find({relations: ['styles']});
+		return this.data.find({ relations: ['styles'] });
 	}
 
-	findOne(id: number): Promise<Category> {
-		return this.data.findOneOrFail(id, {relations: ['styles']}).catch(() => {
+	async findOne(id: number): Promise<Category> {
+		try {
+			return await this.data.findOneOrFail({ where: { id: id }, relations: ['styles'] });
+		} catch {
 			throw new NotFoundException(id);
-		});
+		}
 	}
 
 	async update(id: number, updateCategoryDto: UpdateCategoryDto): Promise<Category> {

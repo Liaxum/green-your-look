@@ -17,7 +17,7 @@ export class LooksService {
 	}
 
 	findOne(id: number): Promise<Look> {
-		return this.data.findOneOrFail(id, { relations: ['styles', 'products'] });
+		return this.data.findOneOrFail({ where: { id: id }, relations: ['styles', 'products'] });
 	}
 
 	async update(id: number, updateLookDto: UpdateLookDto): Promise<Look> {

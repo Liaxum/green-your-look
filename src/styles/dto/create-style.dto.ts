@@ -13,6 +13,5 @@ export class CreateStyleDto {
 	image!: string;
 
 	@ApiProperty()
-	@IsDefined()
 	categories: Category[];
 }

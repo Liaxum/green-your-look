@@ -29,14 +29,20 @@ export class UsersService {
 		return this.data.find();
 	}
 
-	findOne(id: number): Promise<User> {
-		return this.data.findOneOrFail(id).catch(() => {
+	async findOne(id: number): Promise<User> {
+		try {
+			return await this.data.findOneByOrFail({ id: id });
+		} catch (e) {
 			throw new NotFoundException(id);
-		});
+		}
 	}
 
-	findByMail(mail: string): Promise<User> {
-		return this.data.findOne({ mail });
+	async findByMail(mail: string): Promise<User> {
+		try {
+			return await this.data.findOneByOrFail({ mail: mail });
+		} catch {
+			throw new NotFoundException(mail);
+		}
 	}
 
 	async update(id: number, dto: UpdateUserDto): Promise<User> {

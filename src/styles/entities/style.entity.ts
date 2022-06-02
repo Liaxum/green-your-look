@@ -8,7 +8,7 @@ import { Column, Entity, Index, JoinTable, ManyToMany, OneToMany, PrimaryGenerat
 export class Style {
 	@ApiProperty()
 	@PrimaryGeneratedColumn()
-	id!: string;
+	id!: number;
 
 	@ApiProperty()
 	@Index({ unique: true })

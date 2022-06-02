@@ -3,12 +3,12 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { join } from 'path';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CategoriesModule } from './categories/categories.module';
 import { StylesModule } from './styles/styles.module';
 import { LooksModule } from './looks/looks.module';
-import { join } from 'path';
 import { ProductsModule } from './products/products.module';
 import { ProductsListsModule } from './products-lists/products-lists.module';
 
@@ -32,8 +32,8 @@ import { ProductsListsModule } from './products-lists/products-lists.module';
 				join(__dirname, 'migrations/*{.ts,.js}')
 			],
 		}),
-		AuthModule,
 		UsersModule,
+		AuthModule,
 		CategoriesModule,
 		StylesModule,
 		LooksModule,

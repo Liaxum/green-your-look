@@ -11,16 +11,16 @@ export class StylesService {
 
 	create(dto: CreateStyleDto) {
 		const defaultCat = dto.categories.filter(el => el.id === 1);
-		if (!defaultCat.length) dto.categories.push({ id: 1, name: 'Waiting', image: 'Waiting', styles: [] });
+		if (!defaultCat.length) dto.categories.push({ id: 1, name: 'Waiting', styles: [] });
 		return this.data.save(dto);
 	}
 
 	findAll(): Promise<Style[]> {
-		return this.data.find({ relations: ['categories', 'looks'] });
+		return this.data.find({ relations: ['categories'] });
 	}
 
 	findOne(id: number): Promise<Style> {
-		return this.data.findOne(id, { relations: ['categories', 'looks'] });
+		return this.data.findOneOrFail({ where: { id: id }, relations: ['categories'] });
 	}
 
 	async update(id: number, dto: UpdateStyleDto): Promise<Style> {

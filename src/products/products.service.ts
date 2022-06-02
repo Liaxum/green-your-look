@@ -17,8 +17,12 @@ export class ProductsService {
 		return this.data.find();
 	}
 
-	findOne(id: number): Promise<Product> {
-		return this.data.findOne(id);
+	async findOne(id: number): Promise<Product> {
+		try {
+			return await this.data.findOneByOrFail({ id: id });
+		} catch {
+			throw new NotFoundException(id);
+		}
 	}
 
 	async update(id: number, dto: UpdateProductDto): Promise<Product> {
