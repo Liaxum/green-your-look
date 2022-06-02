@@ -2,9 +2,17 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import fs from 'fs';
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
+	const httpsOptions = {
+		key: fs.readFileSync('/home/liaxum/dev/selfsigned.key'),
+		cert: fs.readFileSync('/home/liaxum/dev/selfsigned.crt')
+	};
+
+	const app = await NestFactory.create(AppModule, {
+		httpsOptions
+	});
 
 	app.enableCors({
 		'origin': ['http://localhost:8080', 'https://liaxum.github.io/green-your-look-vue/'],
