@@ -15,7 +15,7 @@ async function bootstrap() {
 	});
 
 	app.enableCors({
-		'origin': ['http://localhost:8080', 'localhost:8080', 'https://liaxum.github.io/green-your-look-vue/'],
+		'origin': ['http://localhost:8080', 'localhost:8080', 'https://liaxum.github.io'],
 		'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 		'allowedHeaders': 'Authorization, Content-Type, Accept',
 		'credentials': true,
