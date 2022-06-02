@@ -15,7 +15,7 @@ async function bootstrap() {
 	});
 
 	app.enableCors({
-		'origin': ['https://liaxum.github.io', 'htpp://localhost:8080'],
+		'origin': ['https://liaxum.github.io', 'http://localhost:8080'],
 		'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 		'allowedHeaders': 'Authorization, Content-Type, Accept',
 		'credentials': true,
