@@ -5,13 +5,13 @@ import { AppModule } from './app.module';
 import { readFileSync } from 'fs';
 
 async function bootstrap() {
-	const httpsOptions = {
+	/* const httpsOptions = {
 		key: readFileSync('/home/liaxum/dev/green-your-look/secrets/selfsigned.key'),
 		cert: readFileSync('/home/liaxum/dev/green-your-look/secrets/selfsigned.crt')
-	};
+	}; */
 
 	const app = await NestFactory.create(AppModule, {
-		httpsOptions
+		//httpsOptions
 	});
 
 	app.enableCors({
