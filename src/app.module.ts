@@ -14,36 +14,36 @@ import { ProductsListsModule } from './products-lists/products-lists.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
-	imports: [
-		ServeStaticModule.forRoot({
-			rootPath: join(__dirname, '../', 'public/dist'),
-			serveRoot: '/green-your-look-vue',
-		}),
-		ConfigModule.forRoot({
-			envFilePath: '.env',
-		}),
-		TypeOrmModule.forRoot({
-			type: 'mariadb',
-			host: process.env.DB_HOST,
-			port: Number(process.env.DB_PORT),
-			username: process.env.DB_USER,
-			password: process.env.DB_PASS,
-			database: process.env.DB_NAME,
-			autoLoadEntities: true,
-			synchronize: true,
-			migrationsRun: true,
-			migrationsTableName: 'migration_history',
-			migrations: [join(__dirname, 'migrations/*{.ts,.js}')],
-		}),
-		UsersModule,
-		AuthModule,
-		CategoriesModule,
-		StylesModule,
-		LooksModule,
-		ProductsModule,
-		ProductsListsModule,
-	],
-	controllers: [AppController],
-	providers: [AppService],
+  imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../', 'public/dist'),
+      serveRoot: '/green-your-look',
+    }),
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    }),
+    TypeOrmModule.forRoot({
+      type: 'mariadb',
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_NAME,
+      autoLoadEntities: true,
+      synchronize: true,
+      migrationsRun: true,
+      migrationsTableName: 'migration_history',
+      migrations: [join(__dirname, 'migrations/*{.ts,.js}')],
+    }),
+    UsersModule,
+    AuthModule,
+    CategoriesModule,
+    StylesModule,
+    LooksModule,
+    ProductsModule,
+    ProductsListsModule,
+  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
