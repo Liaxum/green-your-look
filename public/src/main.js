@@ -6,7 +6,7 @@ import axios from 'axios';
 import vuetify from './plugins/vuetify';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:8542/api';
+axios.defaults.baseURL = 'http://liaxum.fr/api';
 
 Vue.config.productionTip = false;
 

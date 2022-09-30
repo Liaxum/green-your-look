@@ -8,7 +8,7 @@ async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
 
 	app.enableCors({
-		'origin': ['https://liaxum.github.io', 'http://localhost:8080'],
+		'origin': ['https://liaxum.github.io', 'http://localhost:8080', 'http://liaxum.fr'],
 		'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 		'allowedHeaders': 'Authorization, Content-Type, Accept',
 		'credentials': true,
