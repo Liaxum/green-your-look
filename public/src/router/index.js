@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { createWebHashHistory } from 'vue-router';
 import { isLogged } from './guard.js';
 
 Vue.use(VueRouter);
@@ -70,7 +69,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  history: createWebHashHistory(),
+  history: 'history',
   base: process.env.BASE_URL,
   routes,
 });
