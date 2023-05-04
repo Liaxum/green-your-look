@@ -6,7 +6,7 @@ import axios from 'axios';
 import vuetify from './plugins/vuetify';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://liaxum.fr/api';
+axios.defaults.baseURL = 'https://green-your-look.liaxum.fr/api';
 
 Vue.config.productionTip = false;
 
